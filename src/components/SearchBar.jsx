@@ -1,5 +1,6 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
+
+import fetchHeroes from "../lib/utils.js";
 
 export default function SearchBar(props) {
   let queryInput = useRef("");
@@ -23,7 +24,12 @@ export default function SearchBar(props) {
 
   return (
     <form>
-      <input type="text" placeholder="Search hero..." ref={queryInput} />
+      <input
+        type="text"
+        placeholder="Search hero..."
+        name="searchHeroInput"
+        ref={queryInput}
+      />
       <button onClick={handleClick}>Search Hero</button>
     </form>
   );
