@@ -6,17 +6,18 @@
   box-sizing: border-box;
 }
 
+.wrapper {
+  overflow: hidden;
+}
 
 html {
   font-size: 16px;
   min-height: 100%;
 }
 
-
 body {
   min-height: 100vh;
 }
-
 
 h2,
 h3,
@@ -24,18 +25,15 @@ p {
   margin-bottom: 1em;
 }
 
-
 li {
   list-style: none;
 }
-
 
 a,
 a:visited {
   text-decoration: none;
   color: inherit;
 }
-
 
 button {
   background-color: rgb(69, 126, 249);
@@ -48,7 +46,6 @@ button {
   border: none;
 }
 
-
 form {
   display: flex;
   flex-direction: column;
@@ -57,7 +54,6 @@ form {
   margin: 1rem 0;
 }
 
-
 form input {
   padding: 0.5rem;
   font-size: 1rem;
@@ -65,7 +61,6 @@ form input {
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
 }
-
 
 /* Navbar */
 .navbar {
@@ -78,19 +73,16 @@ form input {
   align-items: center;
 }
 
-
 .navbar ul {
   display: flex;
   flex-direction: row;
   gap: 4rem;
 }
 
-
 header {
   min-width: 100%;
   background-color: white;
 }
-
 
 /* Container */
 .container {
@@ -99,11 +91,9 @@ header {
   min-height: 100%;
 }
 
-
 .container.large {
   width: min(90%, 72rem);
 }
-
 
 .grid {
   display: grid;
@@ -112,7 +102,6 @@ header {
   gap: 0.3rem;
 }
 
-
 .card {
   border-radius: 0.3rem;
   overflow: hidden;
@@ -120,16 +109,13 @@ header {
   position: relative;
 }
 
-
 .title {
   text-align: center;
 }
 
-
 .card img {
   min-width: 100%;
 }
-
 
 .card-name {
   opacity: 0;
@@ -139,18 +125,15 @@ header {
   transform: translateY(50%);
 }
 
-
 .card:hover .card-name {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 }
 
-
 .card:hover {
   box-shadow: 0 5px 50px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in;
 }
-
 
 @keyframes fadeIn {
   from {
@@ -162,7 +145,6 @@ header {
   }
 }
 
-
 .hero__details-container {
   display: flex;
   gap: 2rem;
@@ -170,19 +152,16 @@ header {
   line-height: 1.6;
 }
 
-
 .hero__details-container img {
   flex: 1;
   max-width: 100%;
   max-height: 36rem;
 }
 
-
 .hero__details {
   flex: 1;
   min-width: 35ch;
 }
-
 
 .hero__details li {
   list-style: disc;

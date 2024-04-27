@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
-import HeroDetails from "./components/HeroDetails.jsx";
 
 import Home from "./routers/Home.jsx";
 import About from "./routers/About.jsx";
+import HeroDetails from "./routers/HeroDetails.jsx";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<HeroDetails />} />
+        <Route path="/:characterId" element={<HeroDetails />} />
       </Routes>
     </Router>
   );

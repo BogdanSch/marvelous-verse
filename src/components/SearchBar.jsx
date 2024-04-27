@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import fetchHeroes from "../lib/utils.js";
+import { fetchHeroes, fetchHero } from "../lib/utils.js";
 
 export default function SearchBar(props) {
   let queryInput = useRef("");
@@ -17,6 +17,8 @@ export default function SearchBar(props) {
     try {
       let heroes = await fetchHeroes(value);
       props.setter(heroes);
+      // const hero = await fetchHero(value);
+      // props.setter(hero);
     } catch (err) {
       console.error(err);
     }
