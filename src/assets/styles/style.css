@@ -1,16 +1,32 @@
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 .wrapper {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-html {
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+img{
+  max-width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* html {
   font-size: 16px;
   min-height: 100%;
 }
@@ -62,7 +78,6 @@ form input {
   border-radius: 0.3rem;
 }
 
-/* Navbar */
 .navbar {
   width: min(90%, 75rem);
   margin: 0 auto;
@@ -84,7 +99,6 @@ header {
   background-color: white;
 }
 
-/* Container */
 .container {
   width: min(90%, 45rem);
   margin: 2rem auto;
@@ -93,7 +107,7 @@ header {
 
 .container.large {
   width: min(90%, 72rem);
-}
+} */
 
 .grid {
   display: grid;

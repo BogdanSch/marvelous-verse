@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-
 import { fetchHeroes } from "../lib/utils.js";
 
 export default function SearchBar(props) {
@@ -17,22 +16,29 @@ export default function SearchBar(props) {
     try {
       let heroes = await fetchHeroes(value);
       props.setter(heroes);
-      // const hero = await fetchHero(value);
-      // props.setter(hero);
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <form>
+    <div className="input-group w-50 mx-auto">
       <input
         type="text"
+        className="form-control"
         placeholder="Search hero..."
-        name="searchHeroInput"
+        aria-label="Search hero..."
+        aria-describedby="button-addon2"
         ref={queryInput}
       />
-      <button onClick={handleClick}>Search Hero</button>
-    </form>
+      <button
+        className="btn btn-primary"
+        type="button"
+        id="button-addon2"
+        onClick={handleClick}
+      >
+        Search Hero
+      </button>
+    </div>
   );
 }

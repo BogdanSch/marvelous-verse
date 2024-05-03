@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./Imports.jsx";
 
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 
 import Home from "./routers/Home.jsx";
 import About from "./routers/About.jsx";
@@ -15,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/:characterId" element={<HeroDetails />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
