@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import Container from "../components/Container.jsx";
 import { fetchHero } from "../lib/utils.js";
 
 export default function HeroDetails() {
@@ -18,34 +19,49 @@ export default function HeroDetails() {
 
   return (
     <main className="main">
-      <div className="container">
-        <div className="hero__details-container">
-          <img
-            src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-            alt="hero full size"
-          />
-          <div className="hero__details">
-            <h4>Name</h4>
-            <p>{hero.name}</p>
-            {hero.description ? (
-              <>
-                <h4>Description</h4>
-                <p>{hero.description}</p>
-              </>
-            ) : null}
-            <div className="hero__series">
-              <h4>Series</h4>
-              <ul>
-                {hero.series.items
-                  ? hero.series.items.map((title) => (
+      <section className="hero mt-5 mb-5">
+        <Container>
+          <div className="d-flex flex-row flex-wrap gap-5 align-items-start">
+            <img
+              src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+              alt="hero full size"
+              className="hero__image"
+            />
+            <div className="hero__details">
+              <div className="hero__details-name">
+                <h4>Name: </h4>
+                <p>{hero.name}</p>
+              </div>
+              {hero.description ? (
+                <div className="hero__details-description">
+                  <h4>Description: </h4>
+                  <p>{hero.description}</p>
+                </div>
+              ) : null}
+              {hero.comics.items.length > 0 ? (
+                <div className="hero__details-comics">
+                  <h4>Comics: </h4>
+                  <ul>
+                    {hero.comics.items.map((title) => (
                       <li key={Math.random() * 1000}>{title.name}</li>
-                    ))
-                  : null}
-              </ul>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {hero.series.items.length > 0 ? (
+                <div className="hero__details-series">
+                  <h4>Series: </h4>
+                  <ul>
+                    {hero.series.items.map((title) => (
+                      <li key={Math.random() * 1000}>{title.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
           </div>
-        </div>
-      </div>
+        </Container>
+      </section>
     </main>
   );
 }

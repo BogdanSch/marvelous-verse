@@ -10,7 +10,7 @@ export default function SearchBar(props) {
 
   const handleClick = async (event) => {
     event.preventDefault();
-    let value = queryInput.current.value;
+    let value = queryInput.current.value.trim().toLowerCase();
 
     if (isNullOrWhitespace(value)) return;
     try {
