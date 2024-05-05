@@ -8,6 +8,7 @@ import Home from "./routers/Home.jsx";
 import About from "./routers/About.jsx";
 import Heroes from "./routers/Heroes.jsx";
 import HeroDetails from "./routers/HeroDetails.jsx";
+import Contact from "./routers/Contact.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/characters/" element={<Heroes />} />
         <Route path="/characters/:characterId" element={<HeroDetails />} />
+        <Route path="/contact/" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

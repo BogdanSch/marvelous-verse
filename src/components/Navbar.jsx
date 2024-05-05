@@ -32,6 +32,11 @@ const Navbar = (props) => {
                 Characters
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link text-light">
+                Contact
+              </Link>
+            </li>
           </nav>
         </div>
       </Container>

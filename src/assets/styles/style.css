@@ -4,6 +4,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+:root {
+  --accent: #de00de;
+  --white: #fefefe;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -57,7 +62,7 @@ h4 {
 
 .card-name {
   opacity: 0;
-  color: white;
+  color: var(--white);
   position: absolute;
   top: 50%;
   transform: translateY(50%);
@@ -89,4 +94,11 @@ h4 {
 .hero__details li {
   list-style: disc;
   margin-top: 0.5rem;
+}
+/* Contact - Start */
+.contact__form-wrapper {
+  margin-top: 100px;
+}
+.contact__form-title span {
+  color: var(--accent);
 }
