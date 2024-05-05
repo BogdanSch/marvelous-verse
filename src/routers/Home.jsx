@@ -20,9 +20,9 @@ const Home = () => {
         <Container>
           <div className="my-5 text-center w-75 mx-auto">
             <Image src={introImage} alt="Spider Man Reading Intro Image" />
-            <h2 className="mt-3">Marvel Heroes</h2>
+            <h1 className="mt-3">Welcome to Marvelous Verse</h1>
             <p>
-              Marvel Heroes is your ultimate destination for exploring the
+              Marvelous Verse is your ultimate destination for exploring the
               fascinating world of Marvel Comics characters. Whether you're a
               die-hard fan or just getting started, our app has something for
               everyone.
