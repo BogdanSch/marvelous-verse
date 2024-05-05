@@ -5,9 +5,7 @@ import createHeroCards from "../lib/createHeroCards.jsx";
 import Container from "../components/Container";
 import SearchBar from "../components/SearchBar";
 import Grid from "../components/Grid";
-import Image from "../components/Image";
-
-import introImage from "../assets/images/spider-man-reading.avif";
+// import Image from "../components/Image";
 
 const Home = () => {
   const [heroes, setHeroes] = useState([]);
@@ -16,23 +14,6 @@ const Home = () => {
 
   return (
     <main className="main">
-      <section className="about">
-        <Container>
-          <div className="my-5 text-center w-75 mx-auto">
-            <Image src={introImage} alt="Spider Man Reading Intro Image" />
-            <h2 className="mt-3">Marvel Heroes</h2>
-            <p>
-              Marvel Heroes is your ultimate destination for exploring the
-              fascinating world of Marvel Comics characters. Whether you're a
-              die-hard fan or just getting started, our app has something for
-              everyone.
-            </p>
-            <a className="btn btn-outline-info px-5 py-3" href="#heroes">
-              Look up more
-            </a>
-          </div>
-        </Container>
-      </section>
       <section className="heroes" id="heroes">
         <Container>
           <div className="text-center mb-4 w-75 mx-auto">

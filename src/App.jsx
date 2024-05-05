@@ -6,6 +6,7 @@ import Footer from "./components/Footer.jsx";
 
 import Home from "./routers/Home.jsx";
 import About from "./routers/About.jsx";
+import Heroes from "./routers/Heroes.jsx";
 import HeroDetails from "./routers/HeroDetails.jsx";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/characters/" element={<Heroes />} />
         <Route path="/characters/:characterId" element={<HeroDetails />} />
       </Routes>
       <Footer />

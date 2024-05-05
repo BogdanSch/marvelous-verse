@@ -11,19 +11,25 @@ const Navbar = (props) => {
     <header className="header bg-dark text-light py-4">
       <Container>
         <div className="d-flex flex-column justify-content-center gap-4">
-          <Image src={logo} alt="Website Logo Mark (Vite)" className="header__logo" />
+          <Image
+            src={logo}
+            alt="Website Logo Mark (Vite)"
+            className="header__logo"
+          />
           <nav className="nav nav-pills justify-content-center gap-3">
             <li className="nav-item">
               <Link to="/" className="nav-link active">
                 Home
               </Link>
-              {/* <a href="/" className="nav-link active" aria-current="page">
-                    Home
-                  </a> */}
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">
+              <Link to="/about" className="nav-link text-light">
                 About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/characters" className="nav-link text-light">
+                Characters
               </Link>
             </li>
           </nav>
