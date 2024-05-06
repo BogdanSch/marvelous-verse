@@ -7,6 +7,7 @@ body {
 :root {
   --accent: #de00de;
   --white: #fefefe;
+  --grey: #c6c6c6;
 }
 
 html {
@@ -31,7 +32,15 @@ img {
   max-width: 60%;
   display: block;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 8px !important;
+}
+
+img.col {
+  margin: 0;
+  padding: 0;
+}
+.row-spacing {
+  column-gap: 40px;
 }
 
 h1 {
@@ -75,6 +84,13 @@ h4 {
 .header__logo {
   width: 60px;
 }
+.nav-link {
+  transition: all 0.4s ease;
+  color: var(--white);
+}
+.nav-item .nav-link:hover {
+  color: var(--grey);
+}
 /* Heroes - Start */
 .heroes {
   margin-top: 160px;
@@ -94,6 +110,34 @@ h4 {
 .hero__details li {
   list-style: disc;
   margin-top: 0.5rem;
+}
+/* About - Start */
+.about {
+  margin-top: 100px;
+}
+/* Features - Start */
+.features__list .features__item:nth-child(1) .card {
+  background-image: url("../images/flowers-field.jpg");
+}
+.features__list .features__item:nth-child(2) .card {
+  background-image: url("../images/jellyfish.jpg");
+  background-position: center 78%;
+}
+.features__list .features__item:nth-child(3) .card {
+  background-image: url("../images/confetti.jpg");
+}
+
+.features__item .card {
+  transition: all 0.6s ease-in-out;
+}
+
+.features__item .card:hover {
+  box-shadow: rgba(149, 157, 165, 0.8) 0px 8px 24px;
+  transform: translateY(-4px);
+}
+.features__svg {
+  width: 32px;
+  height: 32px;
 }
 /* Contact - Start */
 .contact__form-wrapper {

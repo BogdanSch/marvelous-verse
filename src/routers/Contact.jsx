@@ -4,20 +4,31 @@ import { useState } from "react";
 import Container from "../components/Container";
 import Image from "../components/Image";
 
+import contactImage from "../assets/images/contact-us.jpg";
+
 const Home = () => {
   return (
     <main className="main">
       <section className="contact mt-5">
         <Container>
-          <div className="my-5 text-center w-75 mx-auto">
-            <h2 className="mt-3">Contact us</h2>
-            <p>
-              Have a question or feedback? Feel free to reach out to us! Whether
-              you want to share your thoughts, report an issue, or just say
-              hello, we're here to help. Use the form below to send us a
-              message, and we'll get back to you as soon as possible. Thank you
-              for using Marvelous Verse!
-            </p>
+          <div className="row row-cols-1 row-cols-lg-3 align-items-center justify-content-center g-4 row-spacing">
+            <div className="col text-center">
+              <h2 className="contact__title">About Marvelous Verse</h2>
+              <div className="contact__description">
+                <p>
+                  Have a question or feedback? Feel free to reach out to us!
+                  Whether you want to share your thoughts, report an issue, or
+                  just say hello, we're here to help. Use the form below to send
+                  us a message, and we'll get back to you as soon as possible.
+                  Thank you for using Marvelous Verse!
+                </p>
+              </div>
+            </div>
+            <Image
+              className="w-50 col"
+              src={contactImage}
+              alt="Marvel Comics Image"
+            />
           </div>
           <div className="contact__form-wrapper row justify-content-center">
             <div className="col-12 text-center">
