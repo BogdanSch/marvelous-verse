@@ -13,7 +13,7 @@ const Home = () => {
         <Container>
           <div className="row row-cols-1 row-cols-lg-3 align-items-center justify-content-center g-4 row-spacing">
             <div className="col text-center">
-              <h2 className="contact__title">About Marvelous Verse</h2>
+              <h2 className="contact__title">Got some questions?</h2>
               <div className="contact__description">
                 <p>
                   Have a question or feedback? Feel free to reach out to us!
@@ -36,39 +36,61 @@ const Home = () => {
                 Let's get <span>in touch!</span>
               </h2>
             </div>
-            <div className="col-md-6 my-4">
-              <form>
+            <div className="col-md-8 my-4">
+              <form
+                action="https://sheetdb.io/api/v1/4zcj2g4npujs9"
+                method="post"
+              >
                 <div className="mb-3">
                   <label htmlFor="subject" className="form-label">
-                    Subject
+                    Subject *
                   </label>
                   <input
                     type="text"
                     className="form-control"
                     id="subject"
                     name="subject"
+                    placeholder="Subject: "
+                    required=""
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="creditionals" className="form-label">
+                    Creditionals *
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="creditionals"
+                    name="creditionals"
+                    placeholder="Creditionals: "
+                    required=""
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
-                    Email address
+                    Email address *
                   </label>
                   <input
                     type="email"
                     className="form-control"
                     id="email"
                     name="email"
+                    placeholder="Email address: "
+                    required=""
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="message" className="form-label">
-                    Message
+                    Message *
                   </label>
                   <textarea
                     className="form-control"
                     id="message"
                     name="message"
                     rows="5"
+                    placeholder="Message: "
+                    required=""
                   ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
