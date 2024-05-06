@@ -3,13 +3,41 @@ import { useState } from "react";
 
 import Container from "../components/Container";
 import Image from "../components/Image";
+import Modal from "../components/Modals/Modal";
 
 import contactImage from "../assets/images/contact-us.jpg";
+const API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
 
 const Home = () => {
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+
+    fetch(form.action, {
+      method: "Post",
+      body: new FormData(form),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setShowConfirmModal(true); // Show the confirmation modal
+          form.reset();
+        } else {
+          setShowErrorModal(true); // Show the error modal
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setShowErrorModal(true); // Show the error modal
+        form.reset();
+      });
+  }
   return (
     <main className="main">
-      <section className="contact mt-5">
+      <section className="contact">
         <Container>
           <div className="row row-cols-1 row-cols-lg-3 align-items-center justify-content-center g-4 row-spacing">
             <div className="col text-center">
@@ -36,11 +64,8 @@ const Home = () => {
                 Let's get <span>in touch!</span>
               </h2>
             </div>
-            <div className="col-md-8 my-4">
-              <form
-                action="https://sheetdb.io/api/v1/4zcj2g4npujs9"
-                method="post"
-              >
+            <div className="col-md-8 my-4 card p-4">
+              <form action={API_URL} method="post" onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="subject" className="form-label">
                     Subject *
@@ -101,6 +126,20 @@ const Home = () => {
           </div>
         </Container>
       </section>
+      <Modal
+        id="confirm-modal"
+        title="Confirmation message"
+        text="Your request was successfully sent!"
+        show={showConfirmModal}
+        onHide={() => setShowConfirmModal(false)}
+      />
+      <Modal
+        id="error-modal"
+        title="Error message"
+        text="There was an error, please try again later!"
+        show={showErrorModal}
+        onHide={() => setShowErrorModal(false)}
+      />
     </main>
   );
 };
