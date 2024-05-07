@@ -3,12 +3,11 @@ import React from "react";
 export default function Modal(props) {
   return (
     <div
-      className={`modal fade ${props.show ? "show" : ""}`}
+      className={`modal fade`}
       id={props.id}
       tabIndex="-1"
       role="dialog"
-      style={{ display: props.show ? "block" : "none" }}
-      aria-hidden="true"
+      // style={{ display: props.show ? "block" : "none" }}
     >
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">

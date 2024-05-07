@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import Container from "../components/Container";
 import Image from "../components/Image";
@@ -9,12 +10,18 @@ import contactImage from "../assets/images/contact-us.jpg";
 const API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
 
 const Home = () => {
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [showErrorModal, setShowErrorModal] = useState(false);
+  // const [showConfirmModal, setShowConfirmModal] = useState(false);
+  // const [showErrorModal, setShowErrorModal] = useState(false);
 
-  function handleSubmit(event) {
+  function handleContactFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
+    let confirmModal = new bootstrap.Modal(
+      document.getElementById("confirm-modal")
+    );
+    let errorModal = new bootstrap.Modal(
+      document.getElementById("error-modal")
+    );
 
     fetch(form.action, {
       method: "Post",
@@ -22,16 +29,19 @@ const Home = () => {
     })
       .then((response) => {
         if (response.ok) {
-          setShowConfirmModal(true); // Show the confirmation modal
+          confirmModal.show();
+          // setShowConfirmModal(true);
           form.reset();
         } else {
-          setShowErrorModal(true); // Show the error modal
+          errorModal.show();
+          // setShowErrorModal(true);
           form.reset();
         }
       })
       .catch((error) => {
+        errorModal.show();
         console.error(error);
-        setShowErrorModal(true); // Show the error modal
+        // setShowErrorModal(true);
         form.reset();
       });
   }
@@ -65,7 +75,11 @@ const Home = () => {
               </h2>
             </div>
             <div className="col-md-8 my-4 card p-4">
-              <form action={API_URL} method="post" onSubmit={handleSubmit}>
+              <form
+                action={API_URL}
+                method="post"
+                onSubmit={handleContactFormSubmit}
+              >
                 <div className="mb-3">
                   <label htmlFor="subject" className="form-label">
                     Subject *
@@ -76,7 +90,7 @@ const Home = () => {
                     id="subject"
                     name="subject"
                     placeholder="Subject: "
-                    required=""
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -89,7 +103,7 @@ const Home = () => {
                     id="creditionals"
                     name="creditionals"
                     placeholder="Creditionals: "
-                    required=""
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -102,7 +116,7 @@ const Home = () => {
                     id="email"
                     name="email"
                     placeholder="Email address: "
-                    required=""
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -115,7 +129,7 @@ const Home = () => {
                     name="message"
                     rows="5"
                     placeholder="Message: "
-                    required=""
+                    required
                   ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
@@ -130,15 +144,15 @@ const Home = () => {
         id="confirm-modal"
         title="Confirmation message"
         text="Your request was successfully sent!"
-        show={showConfirmModal}
-        onHide={() => setShowConfirmModal(false)}
+        // show={showConfirmModal}
+        // onHide={() => setShowConfirmModal(false)}
       />
       <Modal
         id="error-modal"
         title="Error message"
         text="There was an error, please try again later!"
-        show={showErrorModal}
-        onHide={() => setShowErrorModal(false)}
+        // show={showErrorModal}
+        // onHide={() => setShowErrorModal(false)}
       />
     </main>
   );
