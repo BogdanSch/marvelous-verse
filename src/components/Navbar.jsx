@@ -18,7 +18,7 @@ const Navbar = (props) => {
           />
           <nav className="nav nav-pills justify-content-center gap-3">
             <li className="nav-item">
-              <Link to="/" className="nav-link active">
+              <Link to="/" className="nav-link">
                 Home
               </Link>
             </li>
@@ -28,7 +28,7 @@ const Navbar = (props) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/characters" className="nav-link">
+              <Link to="/characters" className="nav-link active">
                 Characters
               </Link>
             </li>

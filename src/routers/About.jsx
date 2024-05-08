@@ -27,11 +27,14 @@ const About = () => {
                   and villains.
                 </p>
               </div>
+              <a className="btn btn-outline-info px-5 py-3" href="#features">
+                Observe more
+              </a>
             </div>
           </div>
         </Container>
       </section>
-      <section className="features">
+      <section className="features" id="features">
         <div className="container px-4 py-5" id="custom-cards">
           <h2 className="text-center">Our features</h2>
           <div className="features__list row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">

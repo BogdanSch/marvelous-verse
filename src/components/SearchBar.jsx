@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { fetchHeroes } from "../lib/utils.js";
 
+import Image from "./Image.jsx";
+import searchIcon from "../assets/images/icons/search-heart-fill.svg";
+
 export default function SearchBar(props) {
   let queryInput = useRef("");
 
@@ -37,7 +40,7 @@ export default function SearchBar(props) {
         id="button-addon2"
         onClick={handleClick}
       >
-        Search Hero
+        <Image src={searchIcon} alt="Search Icon" className="search-icon" />
       </button>
     </div>
   );

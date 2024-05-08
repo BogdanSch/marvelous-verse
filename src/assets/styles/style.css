@@ -80,6 +80,10 @@ h4 {
 .card:hover .card-name {
   opacity: 1;
 }
+.search-icon {
+  width: 60px;
+  fill: var(--white) !important;
+}
 /* Header - Start */
 .header__logo {
   width: 60px;
@@ -116,6 +120,9 @@ h4 {
   margin-top: 160px;
 }
 /* Features - Start */
+.features {
+  margin-top: 160px;
+}
 .features__list .features__item:nth-child(1) .card {
   background-image: url("../images/flowers-field.jpg");
 }

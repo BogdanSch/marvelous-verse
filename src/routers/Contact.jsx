@@ -52,6 +52,9 @@ const Home = () => {
                   Thank you for using Marvelous Verse!
                 </p>
               </div>
+              <a className="btn btn-outline-info px-5 py-3" href="#contactForm">
+                Contact us
+              </a>
             </div>
             <Image
               className="w-50 col"
@@ -62,7 +65,7 @@ const Home = () => {
           <div className="contact__form-wrapper row justify-content-center">
             <div className="col-md-8 my-4 card p-4">
               <div className="text-center mb-5">
-                <h2 className="contact__form-title">
+                <h2 className="contact__form-title" id="contactForm">
                   Let's get <span>in touch!</span>
                 </h2>
               </div>
