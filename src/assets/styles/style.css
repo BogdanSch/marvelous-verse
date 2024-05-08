@@ -140,12 +140,18 @@ h4 {
   height: 32px;
 }
 /* Contact - Start */
-.contact{
+.contact {
   margin-top: 160px;
   margin-bottom: 160px;
 }
 .contact__form-wrapper {
   margin-top: 160px;
+}
+.contact__form-wrapper .card {
+  transition: all 0.4 ease;
+}
+.contact__form-wrapper .card:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .contact__form-title span {
   color: var(--accent);

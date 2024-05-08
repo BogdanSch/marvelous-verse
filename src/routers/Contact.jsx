@@ -1,27 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
+// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import Container from "../components/Container";
 import Image from "../components/Image";
 import Modal from "../components/Modals/Modal";
 
 import contactImage from "../assets/images/contact-us.jpg";
-const API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
+const CONTACT_API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
 
 const Home = () => {
-  // const [showConfirmModal, setShowConfirmModal] = useState(false);
-  // const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   function handleContactFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    let confirmModal = new bootstrap.Modal(
-      document.getElementById("confirm-modal")
-    );
-    let errorModal = new bootstrap.Modal(
-      document.getElementById("error-modal")
-    );
 
     fetch(form.action, {
       method: "Post",
@@ -29,19 +23,16 @@ const Home = () => {
     })
       .then((response) => {
         if (response.ok) {
-          confirmModal.show();
-          // setShowConfirmModal(true);
+          setShowConfirmModal(true);
           form.reset();
         } else {
-          errorModal.show();
-          // setShowErrorModal(true);
+          setShowErrorModal(true);
           form.reset();
         }
       })
       .catch((error) => {
-        errorModal.show();
         console.error(error);
-        // setShowErrorModal(true);
+        setShowErrorModal(true);
         form.reset();
       });
   }
@@ -69,14 +60,14 @@ const Home = () => {
             />
           </div>
           <div className="contact__form-wrapper row justify-content-center">
-            <div className="col-12 text-center">
-              <h2 className="contact__form-title">
-                Let's get <span>in touch!</span>
-              </h2>
-            </div>
             <div className="col-md-8 my-4 card p-4">
+              <div className="text-center mb-5">
+                <h2 className="contact__form-title">
+                  Let's get <span>in touch!</span>
+                </h2>
+              </div>
               <form
-                action={API_URL}
+                action={CONTACT_API_URL}
                 method="post"
                 onSubmit={handleContactFormSubmit}
               >
@@ -144,15 +135,15 @@ const Home = () => {
         id="confirm-modal"
         title="Confirmation message"
         text="Your request was successfully sent!"
-        // show={showConfirmModal}
-        // onHide={() => setShowConfirmModal(false)}
+        show={showConfirmModal}
+        onHide={() => setShowConfirmModal(false)}
       />
       <Modal
         id="error-modal"
         title="Error message"
         text="There was an error, please try again later!"
-        // show={showErrorModal}
-        // onHide={() => setShowErrorModal(false)}
+        show={showErrorModal}
+        onHide={() => setShowErrorModal(false)}
       />
     </main>
   );

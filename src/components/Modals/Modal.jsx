@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export default function Modal(props) {
+  useEffect(() => {
+    let modalInstance = new bootstrap.Modal(document.getElementById(props.id));
+    if (props.show) modalInstance.show();
+  }, [props.id, props.show]);
+
   return (
-    <div
-      className={`modal fade`}
-      id={props.id}
-      tabIndex="-1"
-      role="dialog"
-      // style={{ display: props.show ? "block" : "none" }}
-    >
-      <div className="modal-dialog modal-dialog-centered" role="document">
+    <div className="modal fade" id={props.id} tabIndex="-1" role="dialog">
+      <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
             <h4 className="modal-title">{props.title}</h4>
