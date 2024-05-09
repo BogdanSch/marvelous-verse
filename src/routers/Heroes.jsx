@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import createHeroCards from "../lib/createHeroCards.jsx";
 
 import Container from "../components/Container";
@@ -10,8 +11,7 @@ import Image from "../components/Image";
 import searchIntroImage from "../assets/images/search-mark.jpg";
 
 const Home = () => {
-  const [heroes, setHeroes] = useState([]);
-
+  const heroes = useSelector((state) => state.searchedHeroes.value);
   let cards = createHeroCards(heroes);
 
   return (
@@ -26,8 +26,14 @@ const Home = () => {
               favorites with our powerful search feature.
             </p>
           </div>
-          <SearchBar setter={setHeroes} />
-          <Grid className="mt-5">{cards ? cards : null}</Grid>
+          <SearchBar />
+          <Grid className="mt-5">
+            {cards ? (
+              cards
+            ) : (
+              <p>Sorry, there are no heroes found by this request!</p>
+            )}
+          </Grid>
         </Container>
       </section>
     </main>

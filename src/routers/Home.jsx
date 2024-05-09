@@ -1,7 +1,10 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import createHeroCards from "../lib/createHeroCards.jsx";
 
+import Heroes from "./Heroes.jsx";
 import Container from "../components/Container";
 import SearchBar from "../components/SearchBar";
 import Grid from "../components/Grid";
@@ -10,8 +13,7 @@ import Image from "../components/Image";
 import introImage from "../assets/images/spider-man-reading.avif";
 
 const Home = () => {
-  const [heroes, setHeroes] = useState([]);
-
+  const heroes = useSelector((state) => state.searchedHeroes.value);
   let cards = createHeroCards(heroes);
 
   return (
@@ -33,19 +35,7 @@ const Home = () => {
           </div>
         </Container>
       </section>
-      <section className="heroes" id="heroes">
-        <Container>
-          <div className="text-center mb-4 w-75 mx-auto">
-            <h2>Search the Marvel heroes</h2>
-            <p>
-              Explore the vast universe of Marvel characters and find your
-              favorites with our powerful search feature.
-            </p>
-          </div>
-          <SearchBar setter={setHeroes} />
-          <Grid className="mt-5">{cards ? cards : null}</Grid>
-        </Container>
-      </section>
+      <Heroes />
     </main>
   );
 };
