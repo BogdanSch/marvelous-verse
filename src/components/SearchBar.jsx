@@ -14,7 +14,7 @@ export default function SearchBar() {
     return !input || !input.trim();
   }
 
-  const handleSearchClick = async (event) => {
+  const handleHeroSearch = async (event) => {
     event.preventDefault();
     let value = queryInput.current.value.trim().toLowerCase();
 
@@ -22,9 +22,14 @@ export default function SearchBar() {
     try {
       let heroes = await fetchHeroes(value);
       dispatch(setSearchedHeroes(heroes));
-      // props.sestter(heroes);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleHeroSearch(event);
     }
   };
 
@@ -37,12 +42,13 @@ export default function SearchBar() {
         aria-label="Search hero..."
         aria-describedby="button-addon2"
         ref={queryInput}
+        onKeyDown={handleKeyDown}
       />
       <button
         className="btn btn-primary"
         type="button"
         id="button-addon2"
-        onClick={handleSearchClick}
+        onClick={handleHeroSearch}
       >
         <Image src={searchIcon} alt="Search Icon" className="search-icon" />
       </button>
