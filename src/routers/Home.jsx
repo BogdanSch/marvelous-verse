@@ -6,8 +6,6 @@ import createHeroCards from "../lib/createHeroCards.jsx";
 
 import Heroes from "./Heroes.jsx";
 import Container from "../components/Container";
-import SearchBar from "../components/SearchBar";
-import Grid from "../components/Grid";
 import Image from "../components/Image";
 
 import introImage from "../assets/images/spider-man-reading.avif";

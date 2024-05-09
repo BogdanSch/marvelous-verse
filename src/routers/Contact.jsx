@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-// import bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import Container from "../components/Container";
 import Image from "../components/Image";

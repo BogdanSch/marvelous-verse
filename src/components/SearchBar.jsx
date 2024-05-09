@@ -6,7 +6,7 @@ import { fetchHeroes } from "../lib/utils.js";
 import Image from "./Image.jsx";
 import searchIcon from "../assets/images/icons/search-heart-fill.svg";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
   let queryInput = useRef("");
   const dispatch = useDispatch();
 

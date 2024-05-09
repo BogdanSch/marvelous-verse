@@ -1,21 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setSearchedHero } from "../app/features/searchedHeroSlice.js";
 
 import Container from "../components/Container.jsx";
 import { fetchHero } from "../lib/utils.js";
 
 export default function HeroDetails() {
-  const [hero, setHero] = useState();
+  const dispatch = useDispatch();
+
+  const hero = useSelector((state) => state.searchedHero.value);
   let { characterId } = useParams(0);
 
   useEffect(() => {
     fetchHero(characterId)
-      .then((data) => setHero(data[0]))
+      .then((data) => dispatch(setSearchedHero(data[0])))
       .catch((err) => console.error(err));
   }, []);
 
-  if (!hero) return;
+  if (hero.length < 1) return;
 
   return (
     <main className="main">
