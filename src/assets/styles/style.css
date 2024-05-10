@@ -149,7 +149,6 @@ h4 {
 /* Contact - Start */
 .contact {
   margin-top: 160px;
-  margin-bottom: 160px;
 }
 .contact__form-wrapper {
   margin-top: 160px;
@@ -162,4 +161,13 @@ h4 {
 }
 .contact__form-title span {
   color: var(--accent);
+}
+/* Map - Start */
+.map {
+  margin-top: 160px;
+  margin-bottom: 160px;
+}
+.map__iframe {
+  width: 100%;
+  min-height: 450px;
 }

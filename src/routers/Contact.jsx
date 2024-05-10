@@ -1,5 +1,11 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setShowConfirmModal,
+  setShowErrorModal,
+} from "../app/features/showModalSlice";
 
 import Container from "../components/Container";
 import Image from "../components/Image";
@@ -9,29 +15,34 @@ import contactImage from "../assets/images/contact-us.jpg";
 const CONTACT_API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
 
 const Home = () => {
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [showErrorModal, setShowErrorModal] = useState(false);
+  const dispatch = useDispatch();
+  const showModal = useSelector((state) => state.showModal.value);
+
+  function isFormValid(form) {}
 
   function handleContactFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
 
+    if (!isFormValid(form)) {
+      return false;
+    }
     fetch(form.action, {
       method: "Post",
       body: new FormData(form),
     })
       .then((response) => {
         if (response.ok) {
-          setShowConfirmModal(true);
+          dispatch(setShowConfirmModal(true));
           form.reset();
         } else {
-          setShowErrorModal(true);
+          dispatch(setShowErrorModal(true));
           form.reset();
         }
       })
       .catch((error) => {
         console.error(error);
-        setShowErrorModal(true);
+        dispatch(setShowErrorModal(true));
         form.reset();
       });
   }
@@ -133,19 +144,37 @@ const Home = () => {
           </div>
         </Container>
       </section>
+      <section className="map">
+        <Container>
+          <div className="row">
+            <div className="col-12">
+              <h2 className="map__title text-center mb-5">
+                Our office location
+              </h2>
+              <iframe
+                className="map__iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.2408711071625!2d36.234246576376236!3d50.00684037151092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0e6dffdbb8b%3A0xf209264ca6ae97a1!2z0LLRg9C70LjRhtGPINCh0YPQvNGB0YzQutCwLCA0Nywg0KXQsNGA0LrRltCyLCDQpdCw0YDQutGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDRl9C90LAsIDYxMDAw!5e0!3m2!1suk!2snl!4v1715330013400!5m2!1suk!2snl"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </Container>
+      </section>
       <Modal
         id="confirm-modal"
         title="Confirmation message"
         text="Your request was successfully sent!"
-        show={showConfirmModal}
-        onHide={() => setShowConfirmModal(false)}
+        show={showModal.confirmModal}
+        onHide={() => dispatch(setShowConfirmModal(false))}
       />
       <Modal
         id="error-modal"
         title="Error message"
         text="There was an error, please try again later!"
-        show={showErrorModal}
-        onHide={() => setShowErrorModal(false)}
+        show={showModal.errorModal}
+        onHide={() => dispatch(setShowErrorModal(false))}
       />
     </main>
   );
