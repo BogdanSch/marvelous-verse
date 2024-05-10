@@ -12,19 +12,29 @@ import Image from "../components/Image";
 import Modal from "../components/Modals/Modal";
 
 import contactImage from "../assets/images/contact-us.jpg";
+
 const CONTACT_API_URL = "https://sheetdb.io/api/v1/4zcj2g4npujs9";
+const MAX_AMOUNT_LETTERS_FOR_INPUT = 5;
+const MAX_AMOUNT_LETTERS_FOR_FIELD = 40;
 
 const Home = () => {
   const dispatch = useDispatch();
   const showModal = useSelector((state) => state.showModal.value);
 
-  function isFormValid(form) {}
+  function isFormValid(form) {
+    if (form.subject.value.length < MAX_AMOUNT_LETTERS_FOR_INPUT) return false;
+    if (form.creditionals.value.length < MAX_AMOUNT_LETTERS_FOR_INPUT)
+      return false;
+    if (form.message.value.length < MAX_AMOUNT_LETTERS_FOR_FIELD) return false;
+    return true;
+  }
 
   function handleContactFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
 
     if (!isFormValid(form)) {
+      console.log("Invalid form!");
       return false;
     }
     fetch(form.action, {
