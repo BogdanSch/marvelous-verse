@@ -7,5 +7,4 @@ export default defineConfig({
   define: {
     "process.env": {},
   },
-  // base: "/marvelous-verse/",
 });

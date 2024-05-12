@@ -1,6 +1,5 @@
 {
   "name": "marvelous-verse",
-  "homepage": "https://bogdansch.github.io/marvelous-verse/",
   "private": true,
   "version": "1.1.0",
   "type": "module",
